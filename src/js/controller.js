@@ -23,7 +23,7 @@ const controlRecipes = async function () {
   try {
 
     const id = window.location.hash.slice(1);
-    console.log(id)
+    // console.log(id)
   
     if(!id) return ;
    recipeView.renderSpinner()
@@ -36,10 +36,16 @@ const controlRecipes = async function () {
 
 
   } catch (err) {
-    alert(err)
+    // alert(err)
+    recipeView.renderError()
   }
 
 }
-// showRecipe();
-window.addEventListener('hashchange',controlRecipes)
-window.addEventListener('load',controlRecipes)
+const init =  function(){
+  recipeView.addHandlerRender(controlRecipes)
+}
+init();
+
+// // showRecipe();
+// window.addEventListener('hashchange',controlRecipes)
+// window.addEventListener('load',controlRecipes)
